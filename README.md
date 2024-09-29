@@ -9,4 +9,4 @@ You can set your desired Clicks Per Second (CPS) value. Please be aware that the
 ## Key Selection & Activation
 ![img](https://github.com/rvnztolentino/NitroClicker/blob/main/img-190927.png)
 
-This section of the autoclicker allows the user to select their desired activation key. After inputting a key from A to Z, the program confirms the selection and instructs the user to hold down the chosen key to start the autoclicker. The autoclicker will remain active as long as the key is held, automatically clicking at the configured clicks per second (CPS) rate. This feature ensures flexible control and ease of use during gameplay or other tasks.
+This section of the autoclicker allows the user to select their desired activation key. After inputting a key from A to Z, the program confirms the selection and instructs the user to hold down the chosen key to start the autoclicker. The autoclicker will remain active as long as the key is held, automatically clicking at the configured clicks per second (CPS) rate.
