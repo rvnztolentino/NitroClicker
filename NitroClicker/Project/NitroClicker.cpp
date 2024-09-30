@@ -51,7 +51,7 @@ int sleepDuration() {
 
 char customKey() {
 	char K;
-	std::cout << "Press a key from 'A' to 'Z' to choose it as your autoclick key...\n";
+	std::cout << "Press a key from 'A' to 'Z' to use it as your autoclick key...\n";
 
 	while (true) {
 		for (char key = 'A'; key <= 'Z'; key++) { // Loop through A to Z
