@@ -17,5 +17,7 @@ You can now choose between the left, right, or middle mouse button for autoclick
 This section of the autoclicker allows the user to select their desired activation key. After inputting a key from A to Z, the program confirms the selection and instructs the user to hold down the chosen key to start the autoclicker. The autoclicker will remain active as long as the key is held, automatically clicking at the configured clicks per second (CPS) rate.
 
 ## Planned Features
-
 ### Hold-to-Click Activation
+This feature will allow you to hold down the left or right mouse button to activate autoclicking and release it to deactivate.
+### Qt Library GUI Integration with CPS Slider
+Integration of a GUI using the Qt library, featuring a slider that allows users to adjust the clicks per second (CPS). 
