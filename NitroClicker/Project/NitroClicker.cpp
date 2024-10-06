@@ -53,15 +53,15 @@ MouseButton getMouseButton() {
 	while (button == NONE) {
 		if (GetAsyncKeyState(VK_LBUTTON) & 0x8000) {
 			button = LEFT;
-			std::cout << "You selected the LEFT mouse button.\n\n";
+			std::cout << "Selected Mouse Button: LEFT\n\n";
 		}
 		else if (GetAsyncKeyState(VK_RBUTTON) & 0x8000) {
 			button = RIGHT;
-			std::cout << "You selected the RIGHT mouse button.\n\n";
+			std::cout << "Selected Mouse Button: RIGHT\n\n";
 		}
 		else if (GetAsyncKeyState(VK_MBUTTON) & 0x8000) {
 			button = MIDDLE;
-			std::cout << "You selected the MIDDLE mouse button.\n\n";
+			std::cout << "Selected Mouse Button: MIDDLE\n\n";
 		}
 	}
 
