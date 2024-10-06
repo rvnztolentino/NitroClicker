@@ -83,47 +83,68 @@ char customKey() {
 			}
 		}
 
-		if (GetAsyncKeyState(VK_LSHIFT) & 0x8000) { // Left Shift Key
-			std::cout << "Selected Key: 'LEFT SHIFT'\n\n";
+		if (GetAsyncKeyState(VK_SHIFT) & 0x8000) { // Shift Key
+			std::cout << "Selected Key: SHIFT\n\n";
 			Sleep(200);
-			std::cout << "Hold 'LEFT SHIFT' to enable autoclicking (release to stop).\n";
+			std::cout << "Hold SHIFT to enable autoclicking (release to stop).\n";
+			return VK_SHIFT;
+		}
+
+		if (GetAsyncKeyState(VK_CONTROL) & 0x8000) { // Ctrl Key
+			std::cout << "Selected Key: CTRL\n\n";
+			Sleep(200);
+			std::cout << "Hold CTRL to enable autoclicking (release to stop).\n";
+			return VK_CONTROL;
+		}
+
+		if (GetAsyncKeyState(VK_MENU) & 0x8000) { // Alt key
+			std::cout << "Selected Key: ALT\n\n";
+			Sleep(200);
+			std::cout << "Hold ALT to enable autoclicking (release to stop).\n";
+			return VK_MENU;
+		}
+
+		/* if (GetAsyncKeyState(VK_LSHIFT) & 0x8000) { // Left Shift Key
+			std::cout << "Selected Key: LEFT SHIFT\n\n";
+			Sleep(200);
+			std::cout << "Hold LEFT SHIFT to enable autoclicking (release to stop).\n";
 			return VK_LSHIFT;
 		}
 
 		if (GetAsyncKeyState(VK_LCONTROL) & 0x8000) { // Left Ctrl Key
-			std::cout << "Selected Key: 'LEFT CTRL'\n\n";
+			std::cout << "Selected Key: LEFT CTRL\n\n";
 			Sleep(200);
-			std::cout << "Hold 'LEFT CTRL' to enable autoclicking (release to stop).\n";
+			std::cout << "Hold LEFT CTRL to enable autoclicking (release to stop).\n";
 			return VK_LCONTROL;
 		}
 
 		if (GetAsyncKeyState(VK_LMENU) & 0x8000) { // Left Alt key
-			std::cout << "Selected Key: 'LEFT ALT'\n\n";
+			std::cout << "Selected Key: LEFT ALT\n\n";
 			Sleep(200);
-			std::cout << "Hold 'LEFT ALT' to enable autoclicking (release to stop).\n";
+			std::cout << "Hold LEFT ALT to enable autoclicking (release to stop).\n";
 			return VK_LMENU;
-		}
-
-		if (GetAsyncKeyState(VK_RSHIFT) & 0x8000) { // Right Shift Key
-			std::cout << "Selected Key: 'RIGHT SHIFT'\n\n";
+		} */
+		
+		/* if (GetAsyncKeyState(VK_RSHIFT) & 0x8000) { // Right Shift Key
+			std::cout << "Selected Key: RIGHT SHIFT\n\n";
 			Sleep(200);
-			std::cout << "Hold 'RIGHT SHIFT' to enable autoclicking (release to stop).\n";
+			std::cout << "Hold RIGHT SHIFT to enable autoclicking (release to stop).\n";
 			return VK_RSHIFT;
 		}
 
 		if (GetAsyncKeyState(VK_RCONTROL) & 0x8000) { // Right Ctrl Key
-			std::cout << "Selected Key: 'RIGHT CTRL'\n\n";
+			std::cout << "Selected Key: RIGHT CTRL\n\n";
 			Sleep(200);
-			std::cout << "Hold 'RIGHT CTRL' to enable autoclicking (release to stop).\n";
+			std::cout << "Hold RIGHT CTRL to enable autoclicking (release to stop).\n";
 			return VK_RCONTROL;
 		}
 
 		if (GetAsyncKeyState(VK_RMENU) & 0x8000) { // Right Alt key
-			std::cout << "Selected Key: 'RIGHT ALT'\n\n";
+			std::cout << "Selected Key: RIGHT ALT\n\n";
 			Sleep(200);
-			std::cout << "Hold 'RIGHT ALT' to enable autoclicking (release to stop).\n";
+			std::cout << "Hold RIGHT ALT to enable autoclicking (release to stop).\n";
 			return VK_RMENU;
-		}
+		} */
 	}
 }
 
@@ -141,25 +162,25 @@ void autoClicker(MouseButton selectedButton, char selectedKey, int CPS) {
 				isAutoClickerActive = true;
 				std::cout << "Autoclicker ENABLED (key held)\n";
 			}
-				if (selectedButton == LEFT) {
-					mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-					mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-				}
+			if (selectedButton == LEFT) {
+				mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+				mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+			}
 
-				else if (selectedButton == RIGHT) {
-					mouse_event(MOUSEEVENTF_RIGHTDOWN, 0, 0, 0, 0);
-					mouse_event(MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
+			else if (selectedButton == RIGHT) {
+				mouse_event(MOUSEEVENTF_RIGHTDOWN, 0, 0, 0, 0);
+				mouse_event(MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
 
-				}
+			}
 
-				else if (selectedButton == MIDDLE) {
-					mouse_event(MOUSEEVENTF_MIDDLEDOWN, 0, 0, 0, 0);
-					mouse_event(MOUSEEVENTF_MIDDLEUP, 0, 0, 0, 0);
+			else if (selectedButton == MIDDLE) {
+				mouse_event(MOUSEEVENTF_MIDDLEDOWN, 0, 0, 0, 0);
+				mouse_event(MOUSEEVENTF_MIDDLEUP, 0, 0, 0, 0);
 
-				}
+			}
 
-				// Control the click speed (adjust Sleep time to your needs)
-				Sleep(sleepTime);
+			// Control the click speed (adjust Sleep time to your needs)
+			Sleep(sleepTime);
 		}
 
 		else {
