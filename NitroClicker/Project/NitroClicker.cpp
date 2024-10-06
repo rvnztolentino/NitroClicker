@@ -78,7 +78,7 @@ char customKey() {
 				K = key;
 				std::cout << "Selected Key: '" << K << "'\n\n";
 				Sleep(200);
-				std::cout << "Hold '" << K << "'to enable autoclicking(release to stop).\n";
+				std::cout << "Hold '" << K << "'to enable autoclicking (release to stop).\n";
 				return K;
 			}
 		}
