@@ -1,5 +1,5 @@
 # NitroClicker
-NitroClicker is a lightweight console tool that enhances clicking efficiency with customizable clicks per second (CPS). Ideal for tasks that require rapid and continuous clicking, it activates when you hold a key, delivering consistent performance across various applications.
+NitroClicker is an open-source console-based autoclicker built in C++ with customizable clicks per second (CPS). Ideal for tasks that require rapid and continuous clicking, it activates when you hold a key.
 
 ## CPS Counter Display
 ![img](https://github.com/rvnztolentino/NitroClicker/blob/main/img/img-190924.png)
