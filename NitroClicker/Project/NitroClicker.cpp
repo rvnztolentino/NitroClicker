@@ -48,7 +48,7 @@ int sleepDuration() {
 
 MouseButton getMouseButton() {
 	MouseButton button = NONE;
-	std::cout << "Please choose which mouse button to use: LEFT, RIGHT, or MIDDLE. Click your selection.\n";
+	std::cout << "Select a mouse button to use: LEFT, RIGHT, or MIDDLE. Click your selection.\n";
 
 	while (button == NONE) {
 		if (GetAsyncKeyState(VK_LBUTTON) & 0x8000) {
