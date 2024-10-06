@@ -1,10 +1,12 @@
 #include <iostream>
 #include <Windows.h>
+#include <tuple>
 
-// void userSelection();
 int sleepDuration();
+enum MouseButton { NONE, LEFT, RIGHT, MIDDLE };
+MouseButton getMouseButton();
 char customKey();
-void autoClicker(char selectedKey, int CPS);
+void autoClicker(MouseButton selectedButton, char selectedKey, int CPS);
 
 int main() {
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -17,17 +19,12 @@ int main() {
 	|___|  /__||__|  |__|   \____/ 
 		 \/  
 	)" << "\n";
-	// userSelection();
 	int CPS = sleepDuration();
+	MouseButton selectedButton = getMouseButton();
 	char selectedKey = customKey();
-	autoClicker(selectedKey, CPS);
+	autoClicker(selectedButton, selectedKey, CPS);
 	return 0;
 }
-
-/* void userSelection() {
-	std::cout << "Hold '" << customKey << "' to enable autoclicking (release '" << customKey << "' to stop clicking)\n";
-
-} */
 
 int sleepDuration() {
 	int CPS;
@@ -49,28 +46,91 @@ int sleepDuration() {
 	return CPS;
 }
 
+MouseButton getMouseButton() {
+	MouseButton button = NONE;
+	std::cout << "Please choose which mouse button to use: LEFT, RIGHT, or MIDDLE. Click your selection.\n";
+
+	while (button == NONE) {
+		if (GetAsyncKeyState(VK_LBUTTON) & 0x8000) {
+			button = LEFT;
+			std::cout << "You selected the LEFT mouse button.\n\n";
+		}
+		else if (GetAsyncKeyState(VK_RBUTTON) & 0x8000) {
+			button = RIGHT;
+			std::cout << "You selected the RIGHT mouse button.\n\n";
+		}
+		else if (GetAsyncKeyState(VK_MBUTTON) & 0x8000) {
+			button = MIDDLE;
+			std::cout << "You selected the MIDDLE mouse button.\n\n";
+		}
+	}
+
+	return button;
+}
+
 char customKey() {
 	char K;
-	std::cout << "Press a key from 'A' to 'Z' to use it as your autoclick key...\n";
+	std::cout << "Press a key from 'A' to 'Z' or the SHIFT, CTRL, or ALT keys to use it as your autoclick key...\n";
 
 	while (true) {
-		for (char key = 'A'; key <= 'Z'; key++) { // Loop through A to Z
+		for (char key = 'A'; key <= 'Z'; key++) { // Loop through A to Z Keys
 			if (GetAsyncKeyState(key) & 0x8000) {
 				K = key;
 				std::cout << "Selected Key: '" << K << "'\n\n";
 				Sleep(200);
-
+				std::cout << "Hold '" << K << "'to enable autoclicking(release to stop).\n";
 				return K;
 			}
+		}
+
+		if (GetAsyncKeyState(VK_LSHIFT) & 0x8000) { // Left Shift Key
+			std::cout << "Selected Key: 'LEFT SHIFT'\n\n";
+			Sleep(200);
+			std::cout << "Hold 'LEFT SHIFT' to enable autoclicking (release to stop).\n";
+			return VK_SHIFT;
+		}
+
+		if (GetAsyncKeyState(VK_LCONTROL) & 0x8000) { // Left Ctrl Key
+			std::cout << "Selected Key: 'LEFT CTRL'\n\n";
+			Sleep(200);
+			std::cout << "Hold 'LEFT CTRL' to enable autoclicking (release to stop).\n";
+			return VK_CONTROL;
+		}
+
+		if (GetAsyncKeyState(VK_LMENU) & 0x8000) { // Left Alt key
+			std::cout << "Selected Key: 'LEFT ALT'\n\n";
+			Sleep(200);
+			std::cout << "Hold 'LEFT ALT' to enable autoclicking (release to stop).\n";
+			return VK_CONTROL;
+		}
+
+		if (GetAsyncKeyState(VK_RSHIFT) & 0x8000) { // Right Shift Key
+			std::cout << "Selected Key: 'RIGHT SHIFT'\n\n";
+			Sleep(200);
+			std::cout << "Hold 'RIGHT SHIFT' to enable autoclicking (release to stop).\n";
+			return VK_SHIFT;
+		}
+
+		if (GetAsyncKeyState(VK_RCONTROL) & 0x8000) { // Right Ctrl Key
+			std::cout << "Selected Key: 'RIGHT CTRL'\n\n";
+			Sleep(200);
+			std::cout << "Hold 'RIGHT CTRL' to enable autoclicking (release to stop).\n";
+			return VK_CONTROL;
+		}
+
+		if (GetAsyncKeyState(VK_RMENU) & 0x8000) { // Right Alt key
+			std::cout << "Selected Key: 'RIGHT ALT'\n\n";
+			Sleep(200);
+			std::cout << "Hold 'RIGHT ALT' to enable autoclicking (release to stop).\n";
+			return VK_CONTROL;
 		}
 	}
 }
 
-void autoClicker(char selectedKey, int CPS) {
+void autoClicker(MouseButton selectedButton, char selectedKey, int CPS) {
 	int sleepTime = 1000 / CPS;
 	bool isAutoClickerActive = false;
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-	std::cout << "Hold '" << selectedKey << "' to enable autoclicking (release to stop).\n";
 	SetConsoleTextAttribute(h, 2);
 
 	while (true) {
@@ -79,20 +139,33 @@ void autoClicker(char selectedKey, int CPS) {
 			if (!isAutoClickerActive)
 			{
 				isAutoClickerActive = true;
-				std::cout << "Autoclicker enabled (holding '" << selectedKey << "')\n";
+				std::cout << "Autoclicker ENABLED (key held)\n";
 			}
+				if (selectedButton == LEFT) {
+					mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+					mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+				}
 
-			mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-			mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+				else if (selectedButton == RIGHT) {
+					mouse_event(MOUSEEVENTF_RIGHTDOWN, 0, 0, 0, 0);
+					mouse_event(MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
 
-			// Control the click speed (adjust Sleep time to your needs)
-			Sleep(sleepTime);
+				}
+
+				else if (selectedButton == MIDDLE) {
+					mouse_event(MOUSEEVENTF_MIDDLEDOWN, 0, 0, 0, 0);
+					mouse_event(MOUSEEVENTF_MIDDLEUP, 0, 0, 0, 0);
+
+				}
+
+				// Control the click speed (adjust Sleep time to your needs)
+				Sleep(sleepTime);
 		}
 
 		else {
 			if (isAutoClickerActive) {
 				isAutoClickerActive = false;
-				std::cout << "Autoclicker disabled (released '" << selectedKey << "')\n";
+				std::cout << "Autoclicker DISABLED (key released)\n";
 			}
 		}
 
