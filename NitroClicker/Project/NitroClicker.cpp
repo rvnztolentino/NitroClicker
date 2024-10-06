@@ -87,42 +87,42 @@ char customKey() {
 			std::cout << "Selected Key: 'LEFT SHIFT'\n\n";
 			Sleep(200);
 			std::cout << "Hold 'LEFT SHIFT' to enable autoclicking (release to stop).\n";
-			return VK_SHIFT;
+			return VK_LSHIFT;
 		}
 
 		if (GetAsyncKeyState(VK_LCONTROL) & 0x8000) { // Left Ctrl Key
 			std::cout << "Selected Key: 'LEFT CTRL'\n\n";
 			Sleep(200);
 			std::cout << "Hold 'LEFT CTRL' to enable autoclicking (release to stop).\n";
-			return VK_CONTROL;
+			return VK_LCONTROL;
 		}
 
 		if (GetAsyncKeyState(VK_LMENU) & 0x8000) { // Left Alt key
 			std::cout << "Selected Key: 'LEFT ALT'\n\n";
 			Sleep(200);
 			std::cout << "Hold 'LEFT ALT' to enable autoclicking (release to stop).\n";
-			return VK_CONTROL;
+			return VK_LMENU;
 		}
 
 		if (GetAsyncKeyState(VK_RSHIFT) & 0x8000) { // Right Shift Key
 			std::cout << "Selected Key: 'RIGHT SHIFT'\n\n";
 			Sleep(200);
 			std::cout << "Hold 'RIGHT SHIFT' to enable autoclicking (release to stop).\n";
-			return VK_SHIFT;
+			return VK_RSHIFT;
 		}
 
 		if (GetAsyncKeyState(VK_RCONTROL) & 0x8000) { // Right Ctrl Key
 			std::cout << "Selected Key: 'RIGHT CTRL'\n\n";
 			Sleep(200);
 			std::cout << "Hold 'RIGHT CTRL' to enable autoclicking (release to stop).\n";
-			return VK_CONTROL;
+			return VK_RCONTROL;
 		}
 
 		if (GetAsyncKeyState(VK_RMENU) & 0x8000) { // Right Alt key
 			std::cout << "Selected Key: 'RIGHT ALT'\n\n";
 			Sleep(200);
 			std::cout << "Hold 'RIGHT ALT' to enable autoclicking (release to stop).\n";
-			return VK_CONTROL;
+			return VK_RMENU;
 		}
 	}
 }
