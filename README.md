@@ -18,4 +18,4 @@ This section of the autoclicker allows the user to select their desired activati
 
 ## Planned Features
 
-# Hold-to-Click Activation
+### Hold-to-Click Activation
