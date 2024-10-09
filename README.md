@@ -14,7 +14,7 @@ You can now choose between the left, right, or middle mouse button for autoclick
 ## Key Selection & Activation
 ![img](https://github.com/rvnztolentino/NitroClicker/blob/main/img/img-190928.png)
 
-This section of the autoclicker allows the user to select their desired activation key. After pressing a key, the program confirms the selection and instructs the user to hold down the chosen key to start the autoclicker. The autoclicker will remain active as long as the key is held, automatically clicking at the configured clicks per second (CPS) rate.
+This section of the autoclicker allows you to select their desired activation key. After pressing a key, the program confirms the selection and instructs you to hold down the chosen key to start the autoclicker. The autoclicker will remain active as long as the key is held, automatically clicking at the configured clicks per second (CPS) rate.
 
 ## Planned Features
 ### Hold-to-Click Activation
