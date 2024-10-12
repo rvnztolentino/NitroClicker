@@ -3,7 +3,7 @@
 #include <iostream>
 #include <Windows.h>
 
-void autoClicker(MouseButton selectedButton, char selectedKey, int CPS) {
+void autoClicker(MouseButton selectedButton, char selectedKey, int CPS, bool statusIndicator) {
 	int sleepTime = 1000 / CPS;
 	bool isAutoClickerActive = false;
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -15,7 +15,9 @@ void autoClicker(MouseButton selectedButton, char selectedKey, int CPS) {
 			if (!isAutoClickerActive)
 			{
 				isAutoClickerActive = true;
-				std::cout << "Autoclicker ENABLED (key held)\n";
+				if (statusIndicator) {
+					std::cout << "Autoclicker ENABLED (key held)\n";
+				}
 			}
 			if (selectedButton == LEFT) {
 				mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
@@ -41,24 +43,12 @@ void autoClicker(MouseButton selectedButton, char selectedKey, int CPS) {
 		else {
 			if (isAutoClickerActive) {
 				isAutoClickerActive = false;
-				std::cout << "Autoclicker DISABLED (key released)\n";
+				if (statusIndicator) {
+					std::cout << "Autoclicker DISABLED (key released)\n";
+				}
 			}
 		}
 
 		Sleep(10);
 	}
-}
-
-void nitro() {
-	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(h, 10);
-
-	std::cout << R"(
-		   .__  __                  
-	  ____ |__|/  |________  ____  
-	 /    \|  \   __\_  __ \/  _ \ 
-	|   |  \  ||  |  |  | \(  <_> )
-	|___|  /__||__|  |__|   \____/ 
-		 \/  
-	)" << "\n";
 }
