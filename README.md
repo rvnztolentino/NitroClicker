@@ -19,7 +19,5 @@ This section of the autoclicker allows you to select their desired activation ke
 ## Planned Features
 ### Hold-to-Click Activation
 This feature will allow you to hold down the left or right mouse button to activate autoclicking and release it to deactivate.
-### Qt Library GUI Integration with CPS Slider
-Integration of a GUI using the Qt library, featuring a slider that allows users to adjust the clicks per second (CPS). 
 ### CPS Counter Accuracy Fix
 This update will address an issue where the CPS counter shows a lower value than what’s set. The goal is to ensure the autoclicker performs clicks per second accurately, which aligns with the user-defined setting.
