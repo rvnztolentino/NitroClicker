@@ -9,7 +9,7 @@ You can set your desired Clicks Per Second (CPS) value. Take note that the actua
 ## Mouse Button Selection
 ![img](https://github.com/rvnztolentino/NitroClicker/blob/main/img/img-190921.png)
 
-You can now choose between the left, right, or middle mouse button for autoclicking. Simply click the button you want to use and it will be set as your selection for the autoclick function.
+You can choose between the left, right, or middle mouse button for autoclicking. Simply click the button you want to use and it will be set as your selection for the autoclick function.
 
 ## Key Selection & Activation
 ![img](https://github.com/rvnztolentino/NitroClicker/blob/main/img/img-190928.png)
