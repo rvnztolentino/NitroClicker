@@ -15,9 +15,3 @@ You can choose between the left, right, or middle mouse button for autoclicking.
 ![img](https://github.com/rvnztolentino/NitroClicker/blob/main/img/img-190927.png)
 
 This section of the autoclicker allows you to select their desired activation key. After pressing a key, the program confirms the selection and instructs you to hold down the chosen key to start the autoclicker. The autoclicker will remain active as long as the key is held, automatically clicking at the configured clicks per second (CPS) rate.
-
-## Planned Features
-### Hold-to-Click Activation
-This feature will allow you to hold down the left or right mouse button to activate autoclicking and release it to deactivate.
-### CPS Counter Accuracy Fix
-This update will address an issue where the CPS counter shows a lower value than what’s set. The goal is to ensure the autoclicker performs clicks per second accurately, which aligns with the user-defined setting.
